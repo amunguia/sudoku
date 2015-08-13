@@ -99,8 +99,8 @@ setPosition pos value board = makeRows $ foldr (\val acc -> if length acc == ind
 -------------------------------------------------------------------------------
 -- Sudoku Parser
 -- 
--- Expect format:  1 _ _ _ 4 _ _ 2 _ <<\n>>
---                 _ _ 3 _ 3 _ _ _ _ <<\n>>
+-- Expect format:  1 _ _ _ 4 _ _ 2 _ \n
+--                 _ _ 3 _ 3 _ _ _ _ \n
 --                 ...
 
 valueParser :: Parser Value
