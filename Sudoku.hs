@@ -95,13 +95,15 @@ setPosition pos value board = makeRows $ foldr (\val acc -> if length acc == ind
                                                 else val:acc) [] $ concat board
     where index = 81 - pos
 
+stringifyBoard :: Board Value -> IO () 
+stringifyBoard board = mapM_ putStrLn $ fmap (concat . (fmap (++" ")) . (fmap show)) board
 
 -------------------------------------------------------------------------------
 -- Sudoku Parser
 -- 
 -- Expect format:  1 _ _ _ 4 _ _ 2 _ \n
 --                 _ _ 3 _ 3 _ _ _ _ \n
---                 ...
+--                 ... (9 rows)
 
 valueParser :: Parser Value
 valueParser = empty  <|>  value

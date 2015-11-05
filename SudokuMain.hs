@@ -22,7 +22,9 @@ test = "7 _ _ _ 9 5 6 _ _ \n" ++
 runSolve :: Either String (Board Value) -> IO ()
 runSolve (Right board) = do
       let solvedBoard = solve $ toPossibleBoard board 
-      print solvedBoard
+      case solvedBoard of
+        Just b -> stringifyBoard b
+        Nothing -> putStrLn "nope"
       return ()
 runSolve (Left string) = do 
       putStrLn string
